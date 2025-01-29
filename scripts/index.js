@@ -75,7 +75,7 @@ function createCard(item){
   const cardDeleteButton = newItem.querySelector('.card__delete-button');
 
   const cardImg = newItem.querySelector('.card__image');
- 
+  cardImg.setAttribute('src', item.link);
   cardImg.setAttribute('alt', item.name);
 
   const cardRegion = newItem.querySelector('.card__title');
