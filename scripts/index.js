@@ -75,14 +75,14 @@ function createCard(item){
   const cardDeleteButton = newItem.querySelector('.card__delete-button');
 
   const cardImg = newItem.querySelector('.card__image');
-  cardImg.setAttribute('src', item.link);
+ 
   cardImg.setAttribute('alt', item.name);
 
   const cardRegion = newItem.querySelector('.card__title');
   cardRegion.textContent = item.name;
 
   cardDeleteButton.addEventListener('click', deleteCard);
-  cardLikeButton.addEventListener('click', likeCard);
+
   cardImg.addEventListener('click', openCard);
 
   return newItem;
@@ -98,4 +98,27 @@ function deleteCard(evt){
   const targetButton = evt.target;
   const targetCard = targetButton.closest('.places__item');
   targetCard.remove();
+}
+
+// --------- открытие карточки-------------
+
+// Вешаем обработчик для закрытия изображения из попапа
+popupImgСlose.addEventListener('click', function(){openPopup(popupImg)});
+
+function openCard(evt){
+  const targetImg = evt.target;
+// Получаем карточку целевого изображения
+  const itemParent = targetImg.closest('.cards__item');
+// Получаем  изображение из карточки
+  const itemImg =  itemParent.querySelector('.cards__img');
+// Получаем атрибуты изображения из карточки
+  const itemImgSrc = itemImg.getAttribute('src');
+  const itemImgAlt = itemImg.getAttribute('alt');
+
+  openPopup(popupImg);
+// Добавляем атрибуты изображения из карточки в попап
+  popupImgImg.setAttribute('src', itemImgSrc);
+  popupImgImg.setAttribute('alt', itemImgAlt);
+// Подписи изображения в попапе из подписи карточки
+  popupImgTitle.textContent =  itemParent.querySelector('.cards__region').textContent;
 }
