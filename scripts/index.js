@@ -108,9 +108,9 @@ popupImgСlose.addEventListener('click', function(){openPopup(popupImg)});
 function openCard(evt){
   const targetImg = evt.target;
 // Получаем карточку целевого изображения
-  const itemParent = targetImg.closest('.cards__item');
+  const itemParent = targetImg.closest('.places__item');
 // Получаем  изображение из карточки
-  const itemImg =  itemParent.querySelector('.cards__img');
+  const itemImg =  itemParent.querySelector('.card__image');
 // Получаем атрибуты изображения из карточки
   const itemImgSrc = itemImg.getAttribute('src');
   const itemImgAlt = itemImg.getAttribute('alt');
@@ -120,5 +120,5 @@ function openCard(evt){
   popupImgImg.setAttribute('src', itemImgSrc);
   popupImgImg.setAttribute('alt', itemImgAlt);
 // Подписи изображения в попапе из подписи карточки
-  popupImgTitle.textContent =  itemParent.querySelector('.cards__region').textContent;
+  popupImgTitle.textContent =  itemParent.querySelector('.card__title').textContent;
 }
