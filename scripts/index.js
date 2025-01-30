@@ -48,8 +48,8 @@ popupAddCloseButton.addEventListener("click", function () {
   openPopup(popupAdd);
 });
 
-// Функция отправки формы добавления карточки
-function formAddSubmitHandler(evt) {
+// Функция отправки формы добавления карточки 
+function AddFormSubmitHandler(evt) {
   evt.preventDefault();
   // создание новой карточки
   const card = createCard({
@@ -63,7 +63,7 @@ function formAddSubmitHandler(evt) {
 }
 
 // Прикрепляем обработчик добавления карточки к форме:  событием “submit” «отправка»
-formAdd.addEventListener("submit", formAddSubmitHandler);
+formAdd.addEventListener("submit", AddFormSubmitHandler);
 
 //Функция создания карточек
 
@@ -114,6 +114,5 @@ function openCard(evt) {
   popupImgFig.setAttribute("src", itemImgSrc);
   popupImgFig.setAttribute("alt", itemImgAlt);
   // Подписи изображения в попапе из подписи карточки
-  popupImgTitle.textContent =
-    itemParent.querySelector(".card__title").textContent;
+  popupImgTitle.textContent = itemParent.querySelector(".card__title").textContent;
 }
